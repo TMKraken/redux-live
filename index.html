@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ReduxTM Multistream Hub</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      margin: 20px 0;
+      font-size: 2em;
+    }
+
+    .stream-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .stream {
+      border: 2px solid #333;
+      border-radius: 12px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 420px;
+      background: #000;
+    }
+
+    iframe {
+      width: 100%;
+      height: 235px;
+    }
+
+    a {
+      color: #00acee;
+      text-decoration: none;
+      display: block;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      iframe {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>ReduxTM is Live!</h1>
+
+  <div class="stream-container">
+    
+    <!-- Twitch Embed -->
+    <div class="stream">
+      <iframe
+        src="https://player.twitch.tv/?channel=TMRedux&parent=yourdomain.com"
+        allowfullscreen
+        frameborder="0">
+      </iframe>
+      <a href="https://twitch.tv/TMRedux" target="_blank">Watch on Twitch</a>
+    </div>
+
+    <!-- Kick Embed -->
+    <div class="stream">
+      <iframe
+        src="https://kick.com/embed/reduxtm"
+        allowfullscreen
+        frameborder="0">
+      </iframe>
+      <a href="https://kick.com/reduxtm" target="_blank">Watch on Kick</a>
+    </div>
+
+    <!-- YouTube Embed -->
+    <div class="stream">
+      <iframe
+        src="https://www.youtube.com/embed/live_stream?channel=UCj0eT9pHy5GLTOmQHiUzoIQ&autoplay=1"
+        allowfullscreen
+        frameborder="0">
+      </iframe>
+      <a href="https://www.youtube.com/@reduxTM/live" target="_blank">Watch on YouTube</a>
+    </div>
+
+  </div>
+</body>
+</html>
