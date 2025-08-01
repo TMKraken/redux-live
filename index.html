@@ -3,18 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Redux's Hub</title>
+  <title>ReduxTM Multistream Hub</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
 
     body {
       margin: 0;
       padding: 0;
-      background:
-        linear-gradient(180deg, #121212 0%, #2c2c2c 80%), /* black to dark grey */
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="%23444444" stroke-opacity="0.15" stroke-width="1"><path d="M0 20 L20 0"/></svg>') repeat;
-      background-size: 40px 40px;
-      background-blend-mode: overlay;
+      background: linear-gradient(180deg, #2f2f2f 0%, #555555 100%);
       color: #c8c8ff; /* light grey with a hint of purple */
       font-family: 'Oswald', sans-serif;
       display: flex;
@@ -60,6 +56,7 @@
     }
 
     .stream-container {
+      margin: 0 auto;
       display: flex;
       gap: 24px;
       flex-wrap: wrap;
@@ -110,9 +107,34 @@
       color: #1a1a1a;
     }
 
+    /* Mobile improvements */
     @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      h2 {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .stream-container {
+        flex-direction: column;
+        gap: 16px;
+        padding: 0 1rem 2rem 1rem;
+      }
+
+      .stream {
+        max-width: 100%;
+        flex: none;
+        box-shadow: 0 0 8px #9b8cff;
+      }
+
+      .stream:hover {
+        box-shadow: 0 0 16px #a080ff, 0 0 20px #9b8cff;
+      }
+
       iframe {
-        height: 180px;
+        height: 160px;
       }
     }
   </style>
@@ -121,7 +143,7 @@
   <canvas id="snow-canvas"></canvas>
 
   <div class="content-wrapper">
-    <h1>Check if I am Live!!</h1>
+    <h1>Welcome Trade Marked</h1>
     <h2>@ReduxTM</h2>
 
     <div class="stream-container">
@@ -176,6 +198,9 @@
     window.addEventListener('resize', resize);
     resize();
 
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const SNOW_COUNT = isMobile ? 50 : 120;
+
     class SnowDot {
       constructor() {
         this.reset();
@@ -184,7 +209,7 @@
       reset() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.radius = 1 + Math.random() * 2;
+        this.radius = (1 + Math.random() * 2) * (isMobile ? 0.6 : 1);
         this.speedY = 0.5 + Math.random() * 1;
         this.speedX = 0;
         this.angle = Math.random() * Math.PI * 2;
@@ -225,7 +250,6 @@
     }
 
     const snowDots = [];
-    const SNOW_COUNT = 120;
 
     for (let i = 0; i < SNOW_COUNT; i++) {
       snowDots.push(new SnowDot());
